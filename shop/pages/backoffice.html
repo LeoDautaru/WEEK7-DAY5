@@ -35,58 +35,63 @@
         </div>
       </nav>
     </header>
-    <div class="container py-5">
-      <h1 id="form-title">Prodotti</h1>
+    <main>
+      <div class="container py-5">
+        <h1 id="form-title">Prodotti</h1>
 
-      <form id="product-form" class="mt-4">
-        <input
-          type="text"
-          class="form-control mb-2"
-          id="name"
-          placeholder="Nome"
-          required
-        />
-        <input
-          type="text"
-          class="form-control mb-2"
-          id="description"
-          placeholder="Descrizione"
-          required
-        />
-        <input
-          type="text"
-          class="form-control mb-2"
-          id="brand"
-          placeholder="Brand"
-          required
-        />
-        <input
-          type="url"
-          class="form-control mb-2"
-          id="imageUrl"
-          placeholder="URL Immagine"
-          required
-        />
-        <input
-          type="number"
-          class="form-control mb-3"
-          id="price"
-          placeholder="Prezzo"
-          required
-        />
+        <form id="product-form" class="mt-4">
+          <input
+            type="text"
+            class="form-control mb-2"
+            id="name"
+            placeholder="Nome"
+            required
+          />
+          <input
+            type="text"
+            class="form-control mb-2"
+            id="description"
+            placeholder="Descrizione"
+            required
+          />
+          <input
+            type="text"
+            class="form-control mb-2"
+            id="brand"
+            placeholder="Brand"
+            required
+          />
+          <input
+            type="url"
+            class="form-control mb-2"
+            id="imageUrl"
+            placeholder="URL Immagine"
+            required
+          />
+          <input
+            type="number"
+            class="form-control mb-3"
+            id="price"
+            placeholder="Prezzo"
+            required
+          />
 
-        <button type="submit" class="btn btn-primary">Salva</button>
-        <button type="reset" class="btn btn-secondary ms-2">Reset</button>
-        <button
-          type="button"
-          class="btn btn-danger ms-2"
-          id="delete-btn"
-          style="display: none"
-        >
-          Elimina
-        </button>
-      </form>
-    </div>
+          <button type="submit" class="btn btn-primary">Salva</button>
+          <button id="reset-button" type="reset" class="btn btn-secondary ms-2">
+            Reset
+          </button>
+          <button
+            id="delete-button"
+            type="button"
+            class="btn btn-danger ms-2"
+            id="delete-btn"
+            style="display: none"
+          >
+            Elimina
+          </button>
+        </form>
+      </div>
+    </main>
 
     <script src="/shop/assets/backoffice.js"></script>
   </body>

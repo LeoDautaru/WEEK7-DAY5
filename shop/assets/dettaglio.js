@@ -23,7 +23,7 @@ async function loadDetail() {
           <p class="card-text">${p.description}</p>
           <p class="text-muted">Brand: ${p.brand}</p>
           <h4>€${p.price}</h4>
-          <a href="index.html" class="btn btn-secondary mt-3">Torna alla home</a>
+          <a href="/shop/pages/index.html" class="btn btn-secondary mt-3">Torna alla home</a>
         </div>
       </div>
     `;

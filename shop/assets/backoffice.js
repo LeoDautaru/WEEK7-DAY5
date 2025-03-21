@@ -83,3 +83,24 @@ deleteBtn.addEventListener("click", async () => {
     alert("Errore durante la cancellazione");
   }
 });
+
+document.getElementById("reset-button").addEventListener("click", function (e) {
+  const confirmation = confirm("Sei sicuro di voler resettare il modulo?");
+
+  if (confirmation) {
+    // Se l'utente conferma, resetta il modulo
+    document.getElementById("product-form").reset(); // Assicurati di avere un form con id="product-form"
+  }
+});
+document
+  .getElementById("delete-button")
+  .addEventListener("click", function (e) {
+    const confirmation = confirm(
+      "Sei sicuro di voler eliminare questo prodotto?"
+    );
+
+    if (confirmation) {
+      // Se l'utente conferma, elimina il prodotto (usando una chiamata API)
+      deleteProduct(productId); // Aggiungi qui la funzione per eliminare il prodotto
+    }
+  });

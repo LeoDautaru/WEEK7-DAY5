@@ -37,5 +37,60 @@ async function loadProducts() {
     console.error("Errore:", error);
   }
 }
+async function fetchProducts() {
+  const loadingIndicator = document.getElementById("loading-indicator");
+  const productList = document.getElementById("product-list");
+
+  try {
+    // Mostra l'indicatore di caricamento
+    loadingIndicator.style.display = "inline-block";
+
+    // Imposta un timeout per nascondere l'indicatore di caricamento dopo 3 secondi
+    const timeout = setTimeout(() => {
+      loadingIndicator.style.display = "none";
+    }, 3000);
+
+    // Recupera i prodotti dall'API
+    const response = await fetch(
+      "https://striveschool-api.herokuapp.com/api/product/"
+    );
+
+    // Controlla se la risposta è OK
+    if (response.ok) {
+      const products = await response.json();
+
+      // Rimuovi il timeout e nascondi l'indicatore se la risposta arriva prima dei 4 secondi
+      clearTimeout(timeout);
+      loadingIndicator.style.display = "none";
+
+      // Mostra i prodotti nella pagina
+      products.forEach((product) => {
+        const productCard = document.createElement("div");
+        productCard.classList.add("col-md-4", "mb-4");
+
+        productCard.innerHTML = `
+          <div class="card">
+            <img src="${product.imageUrl}" class="card-img-top" alt="${product.name}">
+            <div class="card-body">
+              <h5 class="card-title">${product.name}</h5>
+              <p class="card-text">${product.description}</p>
+              <p class="card-text"><strong>€ ${product.price}</strong></p>
+              <a href="product-detail.html?id=${product._id}" class="btn btn-primary">Dettaglio</a>
+            </div>
+          </div>
+        `;
+
+        productList.appendChild(productCard);
+      });
+    } else {
+      alert("Errore durante il recupero dei prodotti");
+    }
+  } catch (error) {
+    console.error("Errore nella fetch:", error);
+  }
+}
+
+// Carica i prodotti quando la pagina è pronta
+window.onload = fetchProducts;
 
 loadProducts();
